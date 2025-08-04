@@ -1,0 +1,2153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+	<meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeautyInca — Премиум коворкинг для бьюти-мастеров + Подкастные студии</title>
+    <meta name="description" content="Современные кабинеты, профессиональные подкастные студии и всё необходимое для работы и развития мастеров beauty-индустрии. 5 минут от метро Маяковская.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Цвета как на референсе */
+            --primary-gradient: linear-gradient(135deg, #8B5CF6 0%, #D946EF 50%, #EC4899 100%);
+            --primary-purple: #8B5CF6;
+            --primary-pink: #EC4899;
+            --primary-magenta: #D946EF;
+            --accent-purple: #7C3AED;
+            --accent-pink: #BE185D;
+            --text-primary: #1F2937;
+            --text-secondary: #6B7280;
+            --background: #FEFBF8;
+            --background-section: #F9FAFB;
+            --white: #FFFFFF;
+            --grey-light: #F3F4F6;
+            --grey-medium: #E5E7EB;
+            --border-color: #E5E7EB;
+            
+            /* Типографика */
+            --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            
+            /* Размеры */
+            --container-width: 1200px;
+            --border-radius: 16px;
+            --border-radius-small: 12px;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--background);
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+            text-decoration: none;
+            font-family: var(--font-heading);
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav a:hover {
+            color: var(--primary-purple);
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: width 0.3s;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .phone {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius-small);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: var(--white);
+            transform: translateY(0);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary-purple);
+            border: 2px solid var(--primary-purple);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-purple);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--primary-gradient);
+            color: var(--white);
+            padding: 8rem 0 2rem;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 3rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-family: var(--font-heading);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Hero Slider */
+        .hero-slider {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .slider-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slider-slide {
+            min-width: 100%;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .slider-slide.active {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .slider-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .slider-dot.active {
+            background: var(--white);
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .slider-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .slider-nav.prev {
+            left: 10px;
+        }
+
+        .slider-nav.next {
+            right: 10px;
+        }
+
+        /* Hero USP */
+        .hero-usp {
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .usp-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .usp-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .usp-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .usp-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .usp-item p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Cabinets Section */
+        .cabinets {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .cabinets-categories {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .cabinet-category {
+            background: var(--background-section);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: var(--border-radius-small);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .category-icon.economy {
+            background: linear-gradient(135deg, #10B981, #059669);
+        }
+
+        .category-icon.standard {
+            background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+        }
+
+        .category-icon.premium {
+            background: linear-gradient(135deg, #F59E0B, #D97706);
+        }
+
+        .category-icon.education {
+            background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+        }
+
+        .category-icon.special {
+            background: linear-gradient(135deg, #EC4899, #BE185D);
+        }
+
+        .category-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .category-price {
+            color: var(--primary-purple);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .cabinet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .cabinet-card {
+            background: var(--white);
+            border-radius: var(--border-radius-small);
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cabinet-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .cabinet-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .cabinet-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .cabinet-features li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .cabinet-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .cabinet-ideal {
+            background: var(--grey-light);
+            border-radius: var(--border-radius-small);
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cabinet-ideal strong {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .cabinet-ideal p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .cabinet-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+        }
+
+        .cabinet-special {
+            background: var(--primary-gradient);
+            color: var(--white);
+            border: none;
+        }
+
+        .cabinet-special .cabinet-ideal {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .cabinet-special .cabinet-ideal strong,
+        .cabinet-special .cabinet-ideal p {
+            color: var(--white);
+        }
+
+        .cabinet-special .cabinet-price {
+            color: var(--white);
+        }
+
+        .cabinet-special h4 {
+            color: var(--white);
+        }
+
+        .cabinet-special .cabinet-features li {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .category-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .special-zones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .zone-card {
+            background: var(--white);
+            border-radius: var(--border-radius-small);
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .zone-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .zone-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .zone-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .zone-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+        }
+        .services {
+            padding: 5rem 0;
+            background: var(--background-section);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-family: var(--font-heading);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-gradient);
+            border-radius: var(--border-radius-small);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .feature-content p {
+            color: var(--text-secondary);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 0;
+            background: var(--primary-gradient);
+            color: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 5rem 0;
+            background: var(--background-section);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            font-family: var(--font-heading);
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .cta-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .cta-form input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius-small);
+            font-size: 1rem;
+        }
+
+        .cta-form input:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-form {
+                flex-direction: column;
+            }
+
+            .header-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .feature-item {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Podcast Calculator Styles */
+        .podcast-calculator {
+            padding: 5rem 0;
+            background: var(--background-section);
+        }
+
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .calculator-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .studio-selection {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .studio-option {
+            position: relative;
+        }
+
+        .studio-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .studio-option label {
+            display: block;
+            cursor: pointer;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius-small);
+            padding: 1rem;
+            transition: all 0.3s;
+        }
+
+        .studio-option input:checked + label {
+            border-color: var(--primary-purple);
+            background: var(--grey-light);
+        }
+
+        .studio-preview {
+            text-align: center;
+        }
+
+        .studio-image {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            height: 200px;
+            background: var(--grey-light);
+            border-radius: var(--border-radius-small);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .studio-preview h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .studio-preview p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .calc-section {
+            margin-bottom: 2rem;
+        }
+
+        .calc-section h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: var(--border-radius-small);
+            transition: background 0.3s;
+        }
+
+        .radio-group label:hover {
+            background: var(--grey-light);
+        }
+
+        .radio-group input[type="radio"] {
+            accent-color: var(--primary-purple);
+        }
+
+        .calculator-result {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .booking-form input {
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius-small);
+            font-size: 1rem;
+        }
+
+        .booking-form input:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .contact-icons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .contact-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--border-color);
+            background: var(--white);
+            border-radius: var(--border-radius-small);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .contact-btn.active {
+            border-color: var(--primary-purple);
+            background: var(--primary-purple);
+            color: var(--white);
+        }
+
+        .price-display {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--grey-light);
+            border-radius: var(--border-radius-small);
+            margin: 1rem 0;
+        }
+
+        .total-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+        }
+
+        .price-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            accent-color: var(--primary-purple);
+        }
+
+        .privacy-link {
+            color: var(--primary-purple);
+            text-decoration: none;
+        }
+
+        .calc-submit {
+            width: 100%;
+            font-size: 1.1rem;
+        }
+
+        /* Team Section Styles */
+        .team-section {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .team-member {
+            background: var(--background-section);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+        }
+
+        .team-member h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .member-role {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .member-duties {
+            text-align: left;
+        }
+
+        .member-duties strong {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .member-duties p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .services-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .service-tag {
+            background: var(--grey-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Gallery Section Styles */
+        .gallery-section {
+            padding: 5rem 0;
+            background: var(--background-section);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-preview {
+            position: relative;
+        }
+
+        .video-thumbnail {
+            height: 200px;
+            background: var(--grey-medium);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-thumbnail.dark {
+            background: linear-gradient(135deg, #1F2937, #374151);
+        }
+
+        .video-thumbnail.light {
+            background: linear-gradient(135deg, #F3F4F6, #E5E7EB);
+        }
+
+        .video-thumbnail.business {
+            background: linear-gradient(135deg, #111827, #1F2937);
+        }
+
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .video-stats {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .video-stats span {
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--white);
+            padding: 0.25rem 0.5rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .video-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .gallery-footer {
+            text-align: center;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .calculator-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-tags {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">BeautyInca</a>
+                
+                <nav class="nav">
+                    <a href="#coworking">Коворкинг</a>
+                    <a href="#podcast">Подкастные студии</a>
+                    <a href="#education">Обучение</a>
+                    <a href="#services">Услуги</a>
+                    <a href="#contacts">Контакты</a>
+                </nav>
+                
+                <div class="header-actions">
+                    <a href="tel:+74951234567" class="phone">+7 (495) 123-45-67</a>
+                    <a href="#booking" class="btn btn-primary">Забронировать</a>
+                </div>
+                
+                <button class="mobile-menu-toggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Премиум коворкинг для бьюти-мастеров + Подкастные студии</h1>
+                    <p>Работай, учись, создавай контент в одном месте. Современные кабинеты от 400₽/час, профессиональные подкастные студии от 3500₽/час и всё необходимое для развития в beauty-индустрии.</p>
+                    <div class="hero-actions">
+                        <a href="#booking" class="btn btn-primary">Забронировать кабинет</a>
+                        <a href="#podcast" class="btn btn-secondary">Записать подкаст</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-slider">
+                        <div class="slider-container">
+                            <div class="slider-slides">
+                                <div class="slider-slide active">
+                                    📸 Кабинет коворкинга
+                                </div>
+                                <div class="slider-slide">
+                                    🎙️ Подкастная студия
+                                </div>
+                                <div class="slider-slide">
+                                    🎓 Учебный класс
+                                </div>
+                                <div class="slider-slide">
+                                    💅 Nail Zone
+                                </div>
+                            </div>
+                            <button class="slider-nav prev">‹</button>
+                            <button class="slider-nav next">›</button>
+                            <div class="slider-controls">
+                                <span class="slider-dot active"></span>
+                                <span class="slider-dot"></span>
+                                <span class="slider-dot"></span>
+                                <span class="slider-dot"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hero USP -->
+            <div class="hero-usp">
+                <div class="usp-grid">
+                    <div class="usp-item">
+                        <span class="usp-icon">✨</span>
+                        <h3>12 оборудованных кабинетов</h3>
+                        <p>для мастеров красоты</p>
+                    </div>
+                    <div class="usp-item">
+                        <span class="usp-icon">🎙️</span>
+                        <h3>2 профессиональные подкастные студии</h3>
+                        <p>(светлая + темная)</p>
+                    </div>
+                    <div class="usp-item">
+                        <span class="usp-icon">🎓</span>
+                        <h3>Классы для проведения обучения</h3>
+                        <p>с практикой</p>
+                    </div>
+                    <div class="usp-item">
+                        <span class="usp-icon">📍</span>
+                        <h3>Центр Москвы</h3>
+                        <p>5 минут от метро Маяковская</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cabinets Section -->
+    <section class="cabinets" id="coworking">
+        <div class="container">
+            <div class="section-header">
+                <h2>Выберите идеальное рабочее место</h2>
+                <p>От базовых кабинетов до премиум-пространств с полным сервисом</p>
+            </div>
+            
+            <div class="cabinets-categories">
+                <!-- Эконом класс -->
+                <div class="cabinet-category">
+                    <div class="category-header">
+                        <div class="category-icon economy">💰</div>
+                        <div>
+                            <h3>ЭКОНОМ</h3>
+                            <div class="category-price">от 400₽/час</div>
+                        </div>
+                    </div>
+                    <p class="category-description">Базовое оснащение для комфортной работы</p>
+                    
+                    <div class="cabinet-grid">
+                        <div class="cabinet-card">
+                            <h4>Кабинет Shell</h4>
+                            <ul class="cabinet-features">
+                                <li>12 кв.м площади</li>
+                                <li>Базовое оснащение</li>
+                                <li>Без мокрой точки</li>
+                                <li>LED освещение</li>
+                                <li>Кушетка для клиента</li>
+                                <li>Столик для инструментов</li>
+                            </ul>
+                            <div class="cabinet-ideal">
+                                <strong>Идеально для:</strong>
+                                <p>перманентного макияжа, коррекции бровей, консультаций</p>
+                            </div>
+                            <div class="cabinet-price">400₽/час</div>
+                            <a href="#booking" class="btn btn-primary">Забронировать</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Стандарт класс -->
+                <div class="cabinet-category">
+                    <div class="category-header">
+                        <div class="category-icon standard">⭐</div>
+                        <div>
+                            <h3>СТАНДАРТ</h3>
+                            <div class="category-price">от 500₽/час</div>
+                        </div>
+                    </div>
+                    <p class="category-description">Профессиональное оборудование для всех beauty-процедур</p>
+                    
+                    <div class="cabinet-grid">
+                        <div class="cabinet-card">
+                            <h4>Кабинеты Onyx, Wood, Gold, Silver, Grey</h4>
+                            <ul class="cabinet-features">
+                                <li>15-18 кв.м площади</li>
+                                <li>Мокрая точка (Onyx)</li>
+                                <li>Профессиональное LED освещение</li>
+                                <li>Система вентиляции</li>
+                                <li>Эргономичная мебель</li>
+                                <li>Раковина с горячей водой (Onyx)</li>
+                            </ul>
+                            <div class="cabinet-ideal">
+                                <strong>Идеально для:</strong>
+                                <p>наращивания ресниц, массажа лица, косметологических процедур</p>
+                            </div>
+                            <div class="cabinet-price">500₽/час</div>
+                            <a href="#booking" class="btn btn-primary">Забронировать</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Премиум класс -->
+                <div class="cabinet-category">
+                    <div class="category-header">
+                        <div class="category-icon premium">👑</div>
+                        <div>
+                            <h3>ПРЕМИУМ</h3>
+                            <div class="category-price">от 600₽/час</div>
+                        </div>
+                    </div>
+                    <p class="category-description">Максимальный комфорт для VIP-клиентов</p>
+                    
+                    <div class="cabinet-grid">
+                        <div class="cabinet-card">
+                            <h4>Кабинет Crystal</h4>
+                            <ul class="cabinet-features">
+                                <li>25 кв.м — самый просторный!</li>
+                                <li>Собственный санузел</li>
+                                <li>Премиум мебель</li>
+                                <li>Студийное освещение</li>
+                                <li>Зона ожидания для клиентов</li>
+                                <li>Климат-контроль</li>
+                                <li>Звукоизоляция</li>
+                                <li>Сейф для ценностей</li>
+                            </ul>
+                            <div class="cabinet-ideal">
+                                <strong>Идеально для:</strong>
+                                <p>VIP-клиентов, долгих процедур (4+ часа), групповых сессий, фото/видео съемки</p>
+                            </div>
+                            <div class="cabinet-price">600₽/час</div>
+                            <a href="#booking" class="btn btn-primary">Забронировать</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Учебные классы -->
+                <div class="cabinet-category">
+                    <div class="category-header">
+                        <div class="category-icon education">🎓</div>
+                        <div>
+                            <h3>УЧЕБНЫЕ КЛАССЫ</h3>
+                            <div class="category-price">от 500₽/час</div>
+                        </div>
+                    </div>
+                    <p class="category-description">Профессиональные классы для курсов и мастер-классов</p>
+                    
+                    <div class="cabinet-grid">
+                        <div class="cabinet-card">
+                            <h4>Class Work</h4>
+                            <ul class="cabinet-features">
+                                <li>30 кв.м площади</li>
+                                <li>До 8 человек</li>
+                                <li>4 электрокушетки</li>
+                                <li>Передвижные лампы</li>
+                                <li>Флипчарт и маркеры</li>
+                                <li>Проектор и экран</li>
+                            </ul>
+                            <div class="cabinet-ideal">
+                                <strong>Идеально для:</strong>
+                                <p>курсов ПМ, обучения наращиванию ресниц, практических мастер-классов</p>
+                            </div>
+                            <div class="cabinet-price">500₽/час | 4000₽/день</div>
+                            <a href="#booking" class="btn btn-primary">Забронировать</a>
+                        </div>
+                        
+                        <div class="cabinet-card">
+                            <h4>Class Education</h4>
+                            <ul class="cabinet-features">
+                                <li>45 кв.м площади</li>
+                                <li>До 18 человек</li>
+                                <li>Театральная рассадка</li>
+                                <li>Проекционная система</li>
+                                <li>Микрофоны и звук</li>
+                                <li>Интерактивная доска</li>
+                                <li>Система записи видео</li>
+                            </ul>
+                            <div class="cabinet-ideal">
+                                <strong>Идеально для:</strong>
+                                <p>лекций, семинаров, презентаций брендов, бизнес-тренингов</p>
+                            </div>
+                            <div class="cabinet-price">750₽/час | 6000₽/день</div>
+                            <a href="#booking" class="btn btn-primary">Забронировать</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Специализированные зоны -->
+                <div class="cabinet-category">
+                    <div class="category-header">
+                        <div class="category-icon special">💅</div>
+                        <div>
+                            <h3>СПЕЦИАЛИЗИРОВАННЫЕ ЗОНЫ</h3>
+                            <div class="category-price">от 700₽/месяц</div>
+                        </div>
+                    </div>
+                    <p class="category-description">Специальные зоны для nail-мастеров и визажистов</p>
+                    
+                    <div class="special-zones">
+                        <div class="zone-card">
+                            <h4>Nail Zone</h4>
+                            <p>3 рабочих места для маникюра/педикюра с профессиональным оборудованием</p>
+                            <div class="zone-price">18000₽/полмесяца<br>30000₽/месяц</div>
+                        </div>
+                        
+                        <div class="zone-card">
+                            <h4>Гримерная</h4>
+                            <p>2 места для визажистов с голливудским освещением и большими зеркалами</p>
+                            <div class="zone-price">800₽/час</div>
+                        </div>
+                        
+                        <div class="zone-card">
+                            <h4>Локеры</h4>
+                            <p>Индивидуальные шкафчики для безопасного хранения инструментов и материалов</p>
+                            <div class="zone-price">700₽/месяц</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Наши направления</h2>
+                <p>Полная экосистема для мастеров красоты — от обучения до создания контента</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Бьюти-коворкинг</h3>
+                    <p>12 оборудованных кабинетов разного уровня, Nail Zone, учебные классы и гримерная</p>
+                    <div class="service-price">от 400₽/час</div>
+                    <a href="#coworking" class="btn btn-primary">Подробнее</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎙️</div>
+                    <h3>Подкастные студии</h3>
+                    <p>Светлая и темная студии с профессиональным оборудованием. Монтаж включен!</p>
+                    <div class="service-price">от 3500₽/час</div>
+                    <a href="#podcast" class="btn btn-primary">Подробнее</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎓</div>
+                    <h3>Аренда классов для проведения обучения</h3>
+                    <p>Профессиональные классы для курсов и мастер-классов с полным оборудованием</p>
+                    <div class="service-price">от 500₽/час</div>
+                    <a href="#education" class="btn btn-primary">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Почему выбирают BeautyInca</h2>
+                <p>Уникальные преимущества для вашего развития</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">📍</div>
+                    <div class="feature-content">
+                        <h3>Центр Москвы</h3>
+                        <p>5 минут от метро Маяковская, удобная транспортная развязка и парковка</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-content">
+                        <h3>Всё включено</h3>
+                        <p>Профессиональное оборудование, Wi-Fi, климат-контроль, ежедневный клининг</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-content">
+                        <h3>Экосистема развития</h3>
+                        <p>Учись → работай → создавай контент. Скидки студентам на все услуги</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🔧</div>
+                    <div class="feature-content">
+                        <h3>Гибкие условия</h3>
+                        <p>Работаем с 8:00 до 22:00, бронирование от 1 часа, отмена за 2 часа без штрафа</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🎬</div>
+                    <div class="feature-content">
+                        <h3>Профессиональные студии</h3>
+                        <p>4K видео, студийный звук, базовый монтаж включен в темную студию</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🤝</div>
+                    <div class="feature-content">
+                        <h3>Сообщество мастеров</h3>
+                        <p>Нетворкинг, обмен опытом, совместные проекты и взаимная поддержка</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>370</h3>
+                    <p>кв.м общей площади</p>
+                </div>
+                <div class="stat-item">
+                    <h3>12</h3>
+                    <p>оборудованных кабинетов</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>довольных мастеров</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.9</h3>
+                    <p>звезд средний рейтинг</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Podcast Calculator Section -->
+    <section class="podcast-calculator" id="podcast">
+        <div class="container">
+            <div class="section-header">
+                <h2>Калькулятор подкастной студии</h2>
+                <p>Рассчитайте стоимость аренды студии под ваши потребности</p>
+            </div>
+            
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <h3>Выберите студию</h3>
+                    
+                    <div class="studio-selection">
+                        <div class="studio-option">
+                            <input type="radio" id="studio1" name="studio" value="3500" checked>
+                            <label for="studio1">
+                                <div class="studio-preview">
+                                    <div class="studio-image">📸 Первая студия</div>
+                                    <h4>Светлая студия</h4>
+                                    <p>Лофт-интерьер, кирпичные стены, естественное освещение</p>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <div class="studio-option">
+                            <input type="radio" id="studio2" name="studio" value="4500">
+                            <label for="studio2">
+                                <div class="studio-preview">
+                                    <div class="studio-image">🎙️ Вторая студия</div>
+                                    <h4>Темная студия</h4>
+                                    <p>Профессиональная студия с монтажом включен</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="calc-options">
+                        <div class="calc-section">
+                            <h4>Количество человек в кадре</h4>
+                            <div class="radio-group">
+                                <label><input type="radio" name="people" value="1" checked> 1-2 человека</label>
+                                <label><input type="radio" name="people" value="2"> 3-4 человека</label>
+                            </div>
+                        </div>
+                        
+                        <div class="calc-section">
+                            <h4>Продолжительность</h4>
+                            <div class="radio-group">
+                                <label><input type="radio" name="duration" value="1" checked> 1 час</label>
+                                <label><input type="radio" name="duration" value="2"> 2 часа</label>
+                                <label><input type="radio" name="duration" value="3"> 3 часа</label>
+                                <label><input type="radio" name="duration" value="4"> 4 часа</label>
+                                <label><input type="radio" name="duration" value="5"> 5 часов</label>
+                            </div>
+                        </div>
+                        
+                        <div class="calc-section">
+                            <h4>Количество камер</h4>
+                            <div class="radio-group">
+                                <label><input type="radio" name="cameras" value="3" checked> до 3-х</label>
+                                <label><input type="radio" name="cameras" value="4"> от 4 и более</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="calculator-result">
+                    <h3>Забронировать</h3>
+                    <form class="booking-form">
+                        <input type="text" placeholder="Имя" required>
+                        <div class="contact-methods">
+                            <span>Способ связи *</span>
+                            <div class="contact-icons">
+                                <button type="button" class="contact-btn active" data-type="phone">📞</button>
+                                <button type="button" class="contact-btn" data-type="telegram">✈️</button>
+                                <button type="button" class="contact-btn" data-type="whatsapp">📱</button>
+                            </div>
+                        </div>
+                        <input type="tel" placeholder="+7" class="contact-input" required>
+                        
+                        <div class="price-display">
+                            <div class="total-price">3 500 ₽</div>
+                            <div class="price-label">Итого: стоимость аренды студии</div>
+                        </div>
+                        
+                        <label class="checkbox-container">
+                            <input type="checkbox" required>
+                            <span class="checkmark"></span>
+                            Нажимая на кнопку вы соглашаетесь с <a href="#" class="privacy-link">политикой конфиденциальности</a>
+                        </label>
+                        
+                        <button type="submit" class="btn btn-primary calc-submit">Забронировать 🎵</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Возьмем всю организацию и технические заботы на себя</h2>
+                <p>Над вашим проектом будут работать профессионалы</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">👩‍💼</div>
+                    <h4>Алина</h4>
+                    <div class="member-role">Администратор</div>
+                    <div class="member-duties">
+                        <strong>Сделает:</strong>
+                        <p>Встреча и забота о клиентах в студии</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo">👩‍💻</div>
+                    <h4>Мария</h4>
+                    <div class="member-role">Видеооператор</div>
+                    <div class="member-duties">
+                        <strong>Сделает:</strong>
+                        <p>Выставит камеры, осветительные приборы и микрофоны</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo">👨‍💻</div>
+                    <h4>Максим</h4>
+                    <div class="member-role">Видеооператор</div>
+                    <div class="member-duties">
+                        <strong>Сделает:</strong>
+                        <p>Выставит камеры, осветительные приборы и микрофоны</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo">👩‍🎨</div>
+                    <h4>Юлия</h4>
+                    <div class="member-role">Монтажер</div>
+                    <div class="member-duties">
+                        <strong>Сделает:</strong>
+                        <p>Монтаж, цветокоррекция и сведение аудио</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="services-tags">
+                <span class="service-tag">Выставим камеры</span>
+                <span class="service-tag">Выставим осветительные приборы</span>
+                <span class="service-tag">Запишем подкаст</span>
+                <span class="service-tag">Передадим исходники</span>
+                <span class="service-tag">Выполним монтаж подкаста</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Снято в нашей студии</h2>
+                <p>Галерея работ профессиональных операторов, монтажеров и SMM-креаторов</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="video-preview">
+                        <div class="video-thumbnail">
+                            <div class="play-button">▶</div>
+                            <div class="video-stats">
+                                <span class="likes">❤️ 1</span>
+                                <span class="comments">💬 0</span>
+                                <span class="shares">📤 2</span>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h4>Подкаст-студия | Podcast Club</h4>
+                            <p>🎵 Подкаст-студия | Podcast Club ...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="video-preview">
+                        <div class="video-thumbnail dark">
+                            <div class="play-button">▶</div>
+                            <div class="video-stats">
+                                <span class="likes">❤️ 6</span>
+                                <span class="comments">💬 0</span>
+                                <span class="shares">📤 1</span>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h4>Подкаст-студия | Podcast Club</h4>
+                            <p>Работа оператора в Podcast Club</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="video-preview">
+                        <div class="video-thumbnail light">
+                            <div class="play-button">▶</div>
+                            <div class="video-stats">
+                                <span class="likes">❤️ 12</span>
+                                <span class="comments">💬 3</span>
+                                <span class="shares">📤 5</span>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h4>Интервью в светлой студии</h4>
+                            <p>Профессиональная съемка в лофт-интерьере</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="video-preview">
+                        <div class="video-thumbnail business">
+                            <div class="play-button">▶</div>
+                            <div class="video-stats">
+                                <span class="likes">❤️ 8</span>
+                                <span class="comments">💬 2</span>
+                                <span class="shares">📤 4</span>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h4>Бизнес-интервью</h4>
+                            <p>Корпоративная съемка в темной студии</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-footer">
+                <a href="#" class="btn btn-secondary">Посмотреть больше работ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="booking">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Забронируйте кабинет прямо сейчас</h2>
+                <p>Оставьте заявку, и мы подберем идеальное время и кабинет для вашей работы</p>
+                <form class="cta-form">
+                    <input type="tel" placeholder="Ваш телефон" required>
+                    <button type="submit" class="btn btn-primary">Забронировать</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BeautyInca</h3>
+                    <p>Премиум коворкинг для мастеров красоты в центре Москвы</p>
+                    <p>5 минут от метро Маяковская</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Услуги</h3>
+                    <a href="#coworking">Коворкинг</a>
+                    <a href="#podcast">Подкастные студии</a>
+                    <a href="#education">Обучение</a>
+                    <a href="#services">Nail Zone</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                    <a href="mailto:hello@beautyinca.com">hello@beautyinca.com</a>
+                    <p>Москва, Садовая-Триумфальная ул., 4/10</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Режим работы</h3>
+                    <p>Ежедневно с 8:00 до 22:00</p>
+                    <p>Бронирование: 24/7</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 BeautyInca. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Калькулятор подкастной студии
+        function updateCalculator() {
+            const studioPrice = parseInt(document.querySelector('input[name="studio"]:checked').value);
+            const duration = parseInt(document.querySelector('input[name="duration"]:checked').value);
+            const people = parseInt(document.querySelector('input[name="people"]:checked').value);
+            const cameras = parseInt(document.querySelector('input[name="cameras"]:checked').value);
+            
+            let totalPrice = studioPrice * duration;
+            
+            // Доплата за дополнительных людей
+            if (people > 1) {
+                totalPrice += 500 * duration;
+            }
+            
+            // Доплата за дополнительные камеры
+            if (cameras > 3) {
+                totalPrice += 1000 * duration;
+            }
+            
+            document.querySelector('.total-price').textContent = totalPrice.toLocaleString() + ' ₽';
+        }
+
+        // Обработчики для калькулятора
+        document.addEventListener('DOMContentLoaded', function() {
+            // Инициализация калькулятора
+            const calculatorInputs = document.querySelectorAll('input[name="studio"], input[name="duration"], input[name="people"], input[name="cameras"]');
+            calculatorInputs.forEach(input => {
+                input.addEventListener('change', updateCalculator);
+            });
+
+            // Кнопки способов связи
+            const contactBtns = document.querySelectorAll('.contact-btn');
+            const contactInput = document.querySelector('.contact-input');
+            
+            contactBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    contactBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const type = this.getAttribute('data-type');
+                    switch(type) {
+                        case 'phone':
+                            contactInput.placeholder = '+7';
+                            contactInput.type = 'tel';
+                            break;
+                        case 'telegram':
+                            contactInput.placeholder = '@username';
+                            contactInput.type = 'text';
+                            break;
+                        case 'whatsapp':
+                            contactInput.placeholder = '+7';
+                            contactInput.type = 'tel';
+                            break;
+                    }
+                });
+            });
+
+            // Обработка формы бронирования калькулятора
+            document.querySelector('.booking-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = this.querySelector('input[type="text"]').value;
+                const contact = this.querySelector('.contact-input').value;
+                const price = document.querySelector('.total-price').textContent;
+                
+                if (name && contact) {
+                    alert(`Спасибо, ${name}! Ваша заявка на сумму ${price} принята. Мы свяжемся с вами в ближайшее время.`);
+                    this.reset();
+                    updateCalculator(); // Сброс калькулятора
+                }
+            });
+
+            // Инициализация калькулятора при загрузке
+            updateCalculator();
+        });
+
+        // Smooth scrolling для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Обработка формы
+        document.querySelector('.cta-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const phone = this.querySelector('input').value;
+            if (phone) {
+                alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
+                this.reset();
+            }
+        });
+
+        // Анимация появления элементов при скролле
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Применяем анимацию к карточкам услуг
+        document.querySelectorAll('.service-card, .feature-item, .team-member, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Применяем анимацию к карточкам услуг
+        document.querySelectorAll('.service-card, .feature-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
